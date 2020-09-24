@@ -293,20 +293,22 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
       Use case resumes at step 2.
       
       
-**UC01 - Add a visit using Date, Location, Person**
+**UC01 - Add a visit using PersonId, LocationId, Date**
 
 **MSS**
 
 1. User chooses to add a visit to the visits history list.
 2. VirusTracker requests for details of the visit in a specific format. 
-3. User enters the required details (Person, Date, Location).
+3. User enters the required details (PersonId, LocationId, Date).
 4. VirusTracker updates the visits list and adds the new visit.
 5. VirusTracker acknowledges and displays the added visit
+
       Use case ends.
 
 **Extensions**
 
 * 2a. The personId is invalid.
+
          2a.1 VirusTracker prompts user for correct personId
          2a.2 User re-enters details
          2a.3 VirusTracker checks the personId
@@ -314,48 +316,72 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
          2a.4 VirusTracker updates the visits list and adds the new visit.
          2a.5 VirusTracker acknowledges and displays the added visit 
          Use case ends.
-      
-* 2b. VirusTracker detects error in data format
-         2b.1 VirusTracker prompts user for correct personId
+
+* 2b. The locationId is invalid.
+
+         2b.1 VirusTracker prompts user for correct locationId
          2b.2 User re-enters details
-         2b.3 VirusTracker checks the personId
-         2b.1 - 2b.3 are repeated until the correct personId is provided
+         2b.3 VirusTracker checks the locationId
+         2b.1 - 2b.3 are repeated until the correct locationId is provided
          2b.4 VirusTracker updates the visits list and adds the new visit.
          2b.5 VirusTracker acknowledges and displays the added visit 
+         Use case ends.
+      
+* 2c. VirusTracker detects error in date format
+
+         2c.1 VirusTracker prompts user for correct date format
+         2c.2 User re-enters details
+         2c.3 VirusTracker checks the date format
+         2c.1 - 2c.3 are repeated until the correct date format is provided
+         2c.4 VirusTracker updates the visits list and adds the new visit.
+         2c.5 VirusTracker acknowledges and displays the added visit 
          Use case ends
          
-* 2c. User wishes to cancel the add command
-         2c.1 User enters “Cancel”
-         2c.2 VirusTracker acknowledges and returns user to main page
+* 2d. User wishes to cancel the add command
+         2d.1 User enters “Cancel”
+         2d.2 VirusTracker acknowledges and returns user to main page
          Use case ends
 
 **UC02 - Delete visits by Date**
 
 **MSS**
 
-1. User chooses to clear the visit history before a date.
+1. User chooses to clear the visits data up to a certain date.
 2. VirusTracker requests for details of the date.
 3. User enters the required information of the date.
 4. VirusTracker updates the visits list and deletes the visits
    up to the entered date.
-   
+5. VirusTracker acknowledges and displays the deleted visits
+
     Use case ends.
       
 **Extensions**
 
-* 2a. The date is not contained in the visits list.
+* 2a. The date is not contained in the visits list
+
       2a.1 VirusTracker prompts user for correct date
       2a.2 User re-enters date
       2a.3 VirusTracker checks the date entered
       2a.1 - 2a.3 are repeated until the correct date is provided
       2a.4 VirusTracker updates the visits list and deletes the visits up to the entered date.
-      2a.5 VirusTracker acknowledges and displays the added visit 
+      2a.5 VirusTracker acknowledges and displays the deleted visits
       Use case ends.
 
-* 2b. User wishes to cancel the add command
-         2b.1 User enters “Cancel”
-         2b.2 VirusTracker acknowledges and returns user to main page
-         Use case ends
+* 2b. The date is not in the correct format
+
+      2b.1 VirusTracker prompts user for correct date format
+      2b.2 User re-enters date
+      2b.3 VirusTracker checks the date entered
+      2b.1 - 2b.3 are repeated until the correct date is provided
+      2b.4 VirusTracker updates the visits list and deletes the visits up to the entered date.
+      2b.5 VirusTracker acknowledges and displays the deleted visits
+      Use case ends.
+
+* 2c. User wishes to cancel the add command
+
+      2c.1 User enters “Cancel”
+      2c.2 VirusTracker acknowledges and returns user to main page
+      Use case ends
 
 
 **UC06: View all infected people**
