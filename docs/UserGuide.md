@@ -152,30 +152,35 @@ Format: `exit`
 
 AddressBook data are saved in the hard disk automatically after any command that changes the data. There is no need to save manually.
 
-### Adding a visit: 
 
-Adds a visit by the personId, location of visit and date of visit
+### Archiving data files `[coming in v2.0]`
 
-Format: `add personId location date`
+_{explain the feature here}_
 
-* The visit is added to the visits list to track close contacts, especially for the infected people
-* PersonId refers to the id stored in the people list which is available before using this app
-* location refers to the particular location the person with the personId visits
-* date refers to the particular date the person has visited the location
+
+### Adding a visit using personId, locationId, date: 
+
+Adds a visit by the personId of visit, locationId of visit and date of visit
+
+Format: `add personId locationId date`
+
+* The visit is added to the visits list to track contact histories, for all the infected people.
+* personId refers to the id stored in the people list, each person has a unique personId.
+* locationId refers to the id stored in the location list, each location has a unique locationId.
+* date refers to the particular date the person has visited the location.
+
+Example: `add 1 2 2020-02-09`
 
 ### Deleting visits by date: 
 
-Deletes all visits before the date
+Deletes all visits up to the date
 
 Format: `delete date`
 
 * Date corresponds to the dates that exist in the visits list, otherwise it will be invalid
 * All the visits before and including the date will be removed from the visits list
 
-
-### Archiving data files `[coming in v2.0]`
-
-_{explain the feature here}_
+Example: `delete 2020-02-09`
 
 ### Viewing high risk locations
 
